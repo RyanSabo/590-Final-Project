@@ -8,18 +8,20 @@
 
 <body>
     <h1>Secret Santa</h1>
-    <div id="input-container">
-        <label>Enter your name and price limit</label><br>
-        First name: <input type="text" id="firstName" name="firstName" required><br>
-        Last name: <input type="text" id="lastName" name="lastName" required><br>
-        Price limit: <input type="text" id="priceLimit" name="priceLimit" required><br>
-        <button type="button" onclick="alert('Hello world!')">Enter</button>
-        <!-- TODO: On click for buttons -->
-        <button type="button" onclick="alert('Hello world!')">Assign gifts</button>
+    <div id="password-container">
+        <label>Enter group name and password to sign in:</label><br>
+        Group name: <input type="text" id="groupName" name="groupName" required><br>
+        Password: <input type="password" id="password" name="password" required><br>
+        <a href="santa.html">Sign in</a>
+        <!-- Links currently just go to next page, don't have other functionality yet -->
     </div>
 
-    <div id="output-container">
-        <!-- TODO: Display output here -->
+    <div id="newGroup-container">
+        <label>Create a group name and password:</label><br>
+        Group name: <input type="text" id="newGroupName" name="newGroupName" required><br>
+        Password: <input type="password" id="newPassword" name="newPassword" required><br>
+        <a href="santa.html">Create</a>
+        <!-- Links currently just go to next page, don't have other functionality yet -->
     </div>
 
 </body>

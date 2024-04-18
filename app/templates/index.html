@@ -9,18 +9,22 @@
 <body>
     <h1>Secret Santa</h1>
     <div id="password-container">
-        <label>Enter group name and password to sign in:</label><br>
-        Group name: <input type="text" id="groupName" name="groupName" required><br>
-        Password: <input type="password" id="password" name="password" required><br>
-        <a href="santa.html">Sign in</a>
+        <form action="/sign_in" method="post">
+            <label>Enter group name and password to sign in:</label><br>
+            Group name: <input type="text" id="groupName" name="groupName" required><br>
+            Password: <input type="password" id="password" name="password" required><br>
+            <button>Sign in</button>
+        </form>
         <!-- Links currently just go to next page, don't have other functionality yet -->
     </div>
 
     <div id="newGroup-container">
-        <label>Create a group name and password:</label><br>
-        Group name: <input type="text" id="newGroupName" name="newGroupName" required><br>
-        Password: <input type="password" id="newPassword" name="newPassword" required><br>
-        <a href="santa.html">Create</a>
+        <form action="/create_group" method="post">
+            <label>Create a group name and password:</label><br>
+            Group name: <input type="text" id="newGroupName" name="newGroupName" required><br>
+            Password: <input type="password" id="newPassword" name="newPassword" required><br>
+            <button>Create</button>
+        </form>
         <!-- Links currently just go to next page, don't have other functionality yet -->
     </div>
 

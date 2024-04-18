@@ -9,18 +9,20 @@
 <body>
     <h1>Secret Santa</h1>
     <div id="input-container">
-        <label>Enter your name and price limit</label><br>
-        First name: <input type="text" id="firstName" name="firstName" required><br>
-        Last name: <input type="text" id="lastName" name="lastName" required><br>
-        Price limit: <input type="text" id="priceLimit" name="priceLimit" required><br>
-        <button type="button" onclick="alert('Hello world!')">Enter</button>
+        <form action="input_data" method="post">
+            <label>Enter your name and price limit</label><br>
+            First name: <input type="text" id="firstName" name="firstName" required><br>
+            Last name: <input type="text" id="lastName" name="lastName" required><br>
+            Price limit: <input type="text" id="priceLimit" name="priceLimit" required><br>
+            <button>Enter</button>
+        </form>
         <!-- TODO: On click for buttons -->
         <button type="button" onclick="alert('Hello world!')">Assign gifts</button>
     </div>
 
     
     <div id="back">
-        <a href="index.html">Back</a>
+        <a href="/">Back</a>
     </div>
 
     <div id="output-container">

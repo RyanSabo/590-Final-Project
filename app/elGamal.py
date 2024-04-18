@@ -1,0 +1,17 @@
+from Cryptodome.PublicKey import ElGamal as eg
+from Cryptodome.Random import get_random_bytes,random
+
+p = 11774363152266578095067526258816830539166139106121849415818805169740043699372268857521995275805757855836228222867569659145695568012997698531776585688862219
+g = 2534890524550132494481097005281920111219579664822426722657432332577436305162772648334556738057313044668101379845453788943682939971615935369166151340598061
+
+def keyGen(egKey) :
+    return eg.construct(p,
+                        g,
+                        egKey.y)
+
+def encrypt(egKey, message) :
+    y = random.randrange(1, p - 1)
+    s = pow(egKey.y, y, p-1)
+    c1 = pow(g, y, p-1)
+    c2 = message * s
+    return (c1,c2)

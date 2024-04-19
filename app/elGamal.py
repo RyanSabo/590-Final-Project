@@ -10,25 +10,21 @@ def keyGen() : # makes random sk and pk within group
     sk = random.randrange(1, p - 1)
     return eg.construct((p, g, pow(g, sk, p), sk))
 
-def encrypt(egKey, message) :
+def encrypt(egKey, message:int) :
     y = random.randrange(1, p - 1)
-    s = pow(egKey.y, y, p-1)
-    c1 = pow(g, y, p-1)
-    c2 = (message * s) % (p - 1)
+    s = pow(egKey.y, y, p)
+    c1 = pow(g, y, p)
+    c2 = (message * int(s)) % (p)
     return (c1,c2)
 
 def decrypt(egKey, ct) :
     c1, c2 = ct
-    sInv = int(pow(c1, p - int(egKey.x), p-1))
-    m = (c2 * sInv) % (p - 1)
-    m = m.to_bytes(100, byteorder='big')
-    return str(m, encoding="utf-8")
+    s = pow(c1, int(egKey.x), p)
+    sInv = pow(s, p-2, p)
+    m = (c2 * sInv) % p
+    return m
 
 egKey = keyGen()
-ct = encrypt(egKey, 590)
+ct = encrypt(egKey, 12345678910)
 m = decrypt(egKey, ct)
 print(m)
-
-# i just realized we're only encrypting integers for the actual protocol
-# so maybe we can just input integers
-# word that makes it a bit easier i think since we don't need to convert between types of stuff

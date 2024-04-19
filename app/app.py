@@ -37,6 +37,12 @@ def input_data():
     last_name = request.form["lastName"]
     price_limit = request.form["priceLimit"]
 
+    prefered_person_first_name = request.form["preferedPersonFirstName"]
+    prefered_person_last_name = request.form["preferedPersonLastName"]
+
+    least_prefered_person_first_name = request.form["leastPreferedPersonFirstName"]
+    least_prefered_person_last_name = request.form["leastPreferedPersonLastName"]
+
     #TODO: crypto stuff
 
     return render_template("santa.html")

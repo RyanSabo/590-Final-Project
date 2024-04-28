@@ -1,0 +1,26 @@
+h1 {
+    color: red;
+    font-family: 'Mountains of Christmas';
+    font-size: 150px;
+    line-height: 1px;
+}
+
+h1 > span {
+    color: green;
+    font-family: 'Mountains of Christmas';
+    font-size: 150px;
+    line-height: 1px;
+}
+
+label {
+    font-size: 40px;
+    line-height: 75px;
+}
+
+input {
+    font-size: 20px;
+}
+
+.box-label {
+    font-size: 20px;
+}

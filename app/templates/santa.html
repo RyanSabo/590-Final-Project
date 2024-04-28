@@ -4,24 +4,26 @@
 <head>
     <meta charset="utf-8">
     <title>Secret Santa</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
 </head>
 
 <body>
-    <h1>Secret Santa</h1>
+    <h1><span>Secret</span> Santa</h1>
     <div id="input-container">
         <form action="input_data" method="post">
             <label>Enter your name and price limit</label><br>
-            First name: <input type="text" id="firstName" name="firstName" required><br>
-            Last name: <input type="text" id="lastName" name="lastName" required><br>
-            Price limit: <input type="text" id="priceLimit" name="priceLimit" required><br>
+            <span class="box-label">First name: </span><input type="text" id="firstName" name="firstName" required><br>
+            <span class="box-label">Last name: </span><input type="text" id="lastName" name="lastName" required><br>
+            <span class="box-label">Price limit: </span><input type="text" id="priceLimit" name="priceLimit" required><br>
             <br>
-            <label>Who do you most want to give a gift to?</label>
-            First name: <input type="text" id="preferedPersonFirstName" name="preferedPersonFirstName"><br>
-            Last name: <input type="text" id="preferedPersonLastName" name="preferedPersonLastName"><br>
+            <label>Who do you most want to give a gift to?</label><br>
+            <span class="box-label">First name: </span><input type="text" id="preferedPersonFirstName" name="preferedPersonFirstName"><br>
+            <span class="box-label">Last name: </span><input type="text" id="preferedPersonLastName" name="preferedPersonLastName"><br>
             <br>
-            <label>Who do you least want to give a gift to?</label>
-            First name: <input type="text" id="leastPreferedPersonFirstName" name="leastPreferedPersonFirstName"><br>
-            Last name: <input type="text" id="leastPreferedPersonLastName" name="leastPreferedPersonLastName"><br>
+            <label>Who do you least want to give a gift to?</label><br>
+            <span class="box-label">First name: </span><input type="text" id="leastPreferedPersonFirstName" name="leastPreferedPersonFirstName"><br>
+            <span class="box-label">Last name: </span><input type="text" id="leastPreferedPersonLastName" name="leastPreferedPersonLastName"><br><br>
             <button>Enter</button>
         </form>
         <!-- TODO: On click for buttons -->

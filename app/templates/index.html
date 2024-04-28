@@ -4,15 +4,17 @@
 <head>
     <meta charset="utf-8">
     <title>Secret Santa</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
 </head>
 
 <body>
-    <h1>Secret Santa</h1>
+    <h1><span>Secret</span> Santa</h1>
     <div id="password-container">
         <form action="/sign_in" method="post">
             <label>Enter group name and password to sign in:</label><br>
-            Group name: <input type="text" id="groupName" name="groupName" required><br>
-            Password: <input type="password" id="password" name="password" required><br>
+            <span class="box-label">Group name: </span><input type="text" id="groupName" name="groupName" required><br>
+            <span class="box-label">Password: </span><input type="password" id="password" name="password" required><br>
             <button>Sign in</button>
         </form>
         <!-- Links currently just go to next page, don't have other functionality yet -->
@@ -21,8 +23,8 @@
     <div id="newGroup-container">
         <form action="/create_group" method="post">
             <label>Create a group name and password:</label><br>
-            Group name: <input type="text" id="newGroupName" name="newGroupName" required><br>
-            Password: <input type="password" id="newPassword" name="newPassword" required><br>
+            <span class="box-label">Group name: </span><input type="text" id="newGroupName" name="newGroupName" required><br>
+            <span class="box-label">Password: </span><input type="password" id="newPassword" name="newPassword" required><br>
             <button>Create</button>
         </form>
         <!-- Links currently just go to next page, don't have other functionality yet -->

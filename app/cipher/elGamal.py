@@ -71,8 +71,7 @@ class ElGamal:
             quotient.append((c1,c2))
         return quotient
     
-    def blind(self, ct) :
-        y = random.randrange(1, self.p-1)
+    def blind(self, ct, y) :
         c1, c2 = ct
         c1 = pow(c1, y, self.p)
         c2 = pow(c2, y, self.p)
@@ -81,8 +80,11 @@ class ElGamal:
     def blindVector(self, vector) :
         blinded = []
         for ct in vector :
-            blinded.append(self.blind(ct))
+            blinded.append(self.blind(ct, random.randrange(1, self.p-1)))
         return blinded
+    
+    def unblind(self, pt, y) :
+        return pow(pt, self.p-y-1, self.p)
     
     def decShare(self, ct) : # returns share of inverse of s for decryption
         c1 = pow(ct[0], self.x, self.p)

@@ -50,3 +50,12 @@ for i in range(groupSize) :
     quotient[i] = master.decrypt(quotient[i])
 
 print(quotient)
+
+# blinding, unblinding test
+number = 12345678910111213141516
+y = randrange(1, master.p-1)
+blinded = master.blind(master.encrypt(number), y)
+unblinded = master.unblind(master.decrypt(blinded), y)
+
+print(number)
+print(unblinded)

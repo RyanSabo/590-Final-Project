@@ -1,33 +1,19 @@
 # Echo server program
 import socket
-import sys
 
-HOST = None               # Symbolic name meaning all available interfaces
+HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
-s = None
-for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC,
-                              socket.SOCK_STREAM, 0, socket.AI_PASSIVE):
-    af, socktype, proto, canonname, sa = res
-    try:
-        s = socket.socket(af, socktype, proto)
-    except OSError as msg:
-        s = None
-        continue
-    try:
-        s.bind(sa)
-        s.listen(1)
-    except OSError as msg:
-        s.close()
-        s = None
-        continue
-    break
-if s is None:
-    print('could not open socket')
-    sys.exit(1)
-conn, addr = s.accept()
-with conn:
-    print('Connected by', addr)
-    while True:
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen(1)
+    conn, addr = s.accept()
+    with conn:
+        print('Connected by', addr)
         data = conn.recv(1024)
-        if not data: break
-        conn.send(data)
+        #
+        ct = data.decode().split(",")
+        ct1, ct2 = int(ct[0]), int(ct[1])
+        if len(ct) != None:
+            print(type(ct1), int(ct2))
+        #
+        conn.sendall(data)

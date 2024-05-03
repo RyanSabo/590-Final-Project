@@ -13,9 +13,9 @@
     <div id="input-container">
         <form action="input_data" method="post">
             <label>Enter your name and price limit</label><br>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" required><br><br>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required><br><br>
-            <input type="text" id="priceLimit" name="priceLimit" placeholder="Price Limit" required><br><br>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name"><br><br>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name"><br><br>
+            <input type="text" id="priceLimit" name="priceLimit" placeholder="Price Limit"><br><br>
             <label>Who do you most want to give a gift to?</label><br>
             <input type="text" id="preferedPersonFirstName" name="preferedPersonFirstName" placeholder="First Name"><br><br>
             <input type="text" id="preferedPersonLastName" name="preferedPersonLastName" placeholder="Last Name"><br><br>
@@ -24,7 +24,10 @@
             <input type="text" id="leastPreferedPersonLastName" name="leastPreferedPersonLastName" placeholder="Last Name"><br><br>
             <button type="button" id="Enter" onclick="alert('Hello world!')">Enter</button><br><br>
             <button type="button" id="Assign" onclick="alert('Hello world!')">Assign</button><br><br>
-            <button type="button" id="Back" href="index.html">Back</button>
+        </form>
+            <!-- <button type="button" id="Back" href="index.html">Back</button> -->
+            <form action="back" method="get">
+                <button>Back</button> 
         </form>
         <!-- TODO: On click for buttons -->
     </div>

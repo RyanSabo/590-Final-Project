@@ -5,7 +5,7 @@ from server import receive
 
 groupSize = 3
 partNum = 0
-cipher = eg.eg()
+cipher = eg()
 ip = "192.168.0.1"
 
 send(cipher.y, ip)

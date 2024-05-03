@@ -1,8 +1,14 @@
+body {
+    background-image: url("cubes.avif");
+    background-size: 2000px;
+}
+
 h1 {
     color: red;
     font-family: 'Mountains of Christmas';
     font-size: 150px;
     line-height: 1px;
+    text-align: center;
 }
 
 h1 > span {
@@ -12,15 +18,43 @@ h1 > span {
     line-height: 1px;
 }
 
+#password-container, #newGroup-container {
+    text-align: center;
+    background: whitesmoke;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    height: 225px;
+    padding: 15px;
+    margin-left: 29%;
+    margin-top: 50px;
+}
+
+#input-container {
+    text-align: center;
+    background: whitesmoke;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    height: 730px;
+    padding: 15px;
+    margin-left: 29%;
+    margin-top: 50px;
+}
+
 label {
     font-size: 40px;
     line-height: 75px;
+    font-family: Constantia, serif;
+    align-content: center;
 }
 
 input {
     font-size: 20px;
+    font-family: Constantia, serif;
+    background-color: #e5e9f2;
 }
 
-.box-label {
+button {
+    height: 40px;
+    width: 80px;
     font-size: 20px;
 }

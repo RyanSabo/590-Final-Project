@@ -23,11 +23,11 @@ class ElGamal:
 
     
     def encrypt(self, message:int) : # ElGamal encryption
-        y = random.randrange(1, self.p - 1)
-        s = pow(self.y, y, self.p)
-        c1 = pow(self.g, y, self.p)
-        c2 = message%self.p * int(s)
-        return (c1,c2)
+        y = random.randrange(1, self.p - 1) # random number y in group
+        s = pow(self.pk, y, self.p)         # s is pk raised to y
+        c1 = pow(self.g, y, self.p)         # c1 is g raised to y
+        c2 = message * int(s)               # c2 is the message times s
+        return (c1,c2)              # ciphertext is (c1,c2)
 
     def decrypt(self, ct) : # ElGamal encryption
         c1, c2 = ct
@@ -61,7 +61,7 @@ class ElGamal:
     
     def divide(self, vector, vectorShuffle) :
         quotient = list()
-        for i in range(len(vector)) :
+        for i in range(len(vector)):
             c1Vector, c2Vector = vector[i]
             c1Shuffle, c2Shuffle = vectorShuffle[i]
             c1inverse = pow(c1Shuffle, self.p-2, self.p)
@@ -89,6 +89,13 @@ class ElGamal:
     def decShare(self, ct) : # returns share of inverse of s for decryption
         c1 = pow(ct[0], self.x, self.p)
         return pow(c1, self.p-2, self.p)
+    
+    def log(self, gi) :
+        participant = 1
+        while gi != self.g :
+            participant += 1
+            gi = self.mult(gi, exp = self.p - 1)
+        return participant
 
     
     

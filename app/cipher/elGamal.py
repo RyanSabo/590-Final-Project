@@ -83,7 +83,7 @@ class ElGamal:
             blinded.append(self.blind(ct, random.randrange(1, self.p-1)))
         return blinded
     
-    def unblind(self, pt, y) :
+    def unblind(self, pt, y) : # unused
         return pow(pt, self.p-y-1, self.p)
     
     def decShare(self, ct) : # returns share of inverse of s for decryption
@@ -94,7 +94,7 @@ class ElGamal:
         participant = 1
         while gi != self.g :
             participant += 1
-            gi = self.mult(gi, exp = self.p - 1)
+            gi = self.mult(gi, exp = self.p - 2)
         return participant
 
     

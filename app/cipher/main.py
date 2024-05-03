@@ -2,9 +2,12 @@ from elGamal import ElGamal as eg
 from Cryptodome.Random.random import randrange
 from copy import deepcopy
 
+# testing elgamal class functions
+
 # encryption, decryption test
 message = 12345678910
 cipher = eg()
+cipher.setPK(cipher.y) # set group pk to individual pk for testing
 ct = cipher.encrypt(message)
 result = cipher.decrypt(ct)
 print(result)
@@ -49,13 +52,22 @@ for i in range(groupSize) :
     originalVector[i] = master.decrypt(originalVector[i])
     quotient[i] = master.decrypt(quotient[i])
 
+print("Quotients of original vector divided by vector (if working, should sometimes include a 1):")
 print(quotient)
 
 # blinding, unblinding test
 number = 12345678910111213141516
 y = randrange(1, master.p-1)
-blinded = master.blind(master.encrypt(number), y)
-unblinded = master.unblind(master.decrypt(blinded), y)
+c1Num,c2Num = master.encrypt(number)
+c1Y, c2Y = master.encrypt(pow(master.g, y, master.p))
+c1 = (c1Num * c1Y) % master.p
+c2 = (c2Num * c2Y) % master.p
+unblinded = master.decrypt((c1,c2))
 
 print(number)
-print(unblinded)
+print((unblinded * pow(master.g, master.p-y-1, master.p)) % master.p)
+
+# small log test
+exponent = 5
+number = pow(master.g, exponent, cipher.p)
+print(master.log(number))

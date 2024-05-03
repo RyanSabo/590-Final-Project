@@ -6,11 +6,8 @@ HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
 
 
-def receive(s):
-    s.bind((HOST, PORT))
-    s.listen(1)
-    print("Server started, listening for connections...")
-    conn, addr = s.accept()
+def receive(s, conn, addr):
+    
     with conn:
         print('Connected by', addr)
         while True:
@@ -20,5 +17,4 @@ def receive(s):
                 break
             received_obj = pickle.loads(data)
             print('Received:', received_obj)
-            s.close()
             return received_obj

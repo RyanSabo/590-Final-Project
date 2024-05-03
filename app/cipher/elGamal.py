@@ -26,7 +26,7 @@ class ElGamal:
         y = random.randrange(1, self.p - 1)
         s = pow(self.y, y, self.p)
         c1 = pow(self.g, y, self.p)
-        c2 = (message * int(s)) % self.p
+        c2 = message%self.p * int(s)
         return (c1,c2)
 
     def decrypt(self, ct) : # ElGamal encryption

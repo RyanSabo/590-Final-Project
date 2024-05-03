@@ -2,11 +2,16 @@ from elGamal import ElGamal as eg
 from Cryptodome.Random import random
 from client import send
 from server import receive
+import time
+import socket
 
 groupSize = 3
 partNum = 0
-cipher = eg.eg()
-ip = "192.168.0.1"
+cipher = eg()
+ip = "172.20.10.3"
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((ip, 50007))
 
 send(cipher.y, ip)
 pk = receive()

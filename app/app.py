@@ -48,4 +48,9 @@ def input_data():
     return render_template("santa.html")
 
 
+@app.route('/back', methods=['GET'])
+def back():
+    return render_template("index.html")
+
+
 
